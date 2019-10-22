@@ -4,15 +4,22 @@ weight: 2
 bookToc: false
 ---
 
-`Project.hasOne(User, { foreignKey: 'initiator_id' })`
+## foreignKey
+
+```
+Project.hasOne(User, { foreignKey: 'initiator_id' })
+```
 
 这个定义 的意思是：
 
-User表中的 外键 initiator_id 的值  =  Project.Id ，对吗？
+User表中的 外键 initiator_id 的值  =  Project.Id
 
-// 如果想对一个表做两次连接查询:
+## 如果想对一个表做两次连接查询
+
+```
 Team.hasOne(Game, {as: 'HomeTeam', foreignKey : 'homeTeamId'});
 Team.hasOne(Game, {as: 'AwayTeam', foreignKey : 'awayTeamId'});
+```
 
 是指 
 
