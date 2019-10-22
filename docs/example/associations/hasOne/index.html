@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="hasOne" />
+<meta property="og:description" content="Project.hasOne(User, { foreignKey: &#39;initiator_id&#39; })
+这个定义 的意思是：
+User表中的 外键 initiator_id 的值 = Project.Id ，对吗？
+// 如果想对一个表做两次连接查询: Team.hasOne(Game, {as: &lsquo;HomeTeam&rsquo;, foreignKey : &lsquo;homeTeamId&rsquo;}); Team.hasOne(Game, {as: &lsquo;AwayTeam&rsquo;, foreignKey : &lsquo;awayTeamId&rsquo;});
+是指
+ Game 中的 homeTeamId 值 = Team 表中的 id
+的 同时： Game 中的 awayTeamId 值 = Team 表中的 id
+  转化成 sql ，则是：
+select * from Team inner join Game AS HomeTeam on HomeTeam.homeTeamId=Team.id inner join Game As AwayTeam on AwayTeam." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://eiuapp.github.io/sequelize-handbook/docs/example/associations/hasOne/" />
+<meta property="article:modified_time" content="2019-10-22T09:54:04+08:00" />
+<title>hasOne | Sequelize</title>
+<link rel="icon" href="/sequelize-handbook/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/sequelize-handbook/book.min.1b994bd28c6ce2255f069b6bf6837b4d396307637fc48d61dcb2a6caac26e031.css" integrity="sha256-G5lL0oxs4iVfBptr9oN7TTljB2N/xI1h3LKmyqwm4DE=">
+
+
+<script defer src="/sequelize-handbook/search.min.56a76542f108fc96efdf7752fbe76c3ac09acf41631192a147b3a593994ce682.js" integrity="sha256-VqdlQvEI/Jbv33dS&#43;&#43;dsOsCaz0FjEZKhR7Olk5lM5oI="></script>
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://eiuapp.github.io/sequelize-handbook/"><span>Sequelize</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" placeholder="Search" id="book-search-input" maxlength="64" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+    <ul>
+<li><a href="/sequelize-handbook/docs/resource/sequelize-docs/"><strong>Docs</strong></a></li>
+<li><a href="/sequelize-handbook/docs/example/"><strong>Example</strong></a>
+
+<ul>
+<li><a href="/sequelize-handbook/docs/example/associations/">associations</a></li>
+</ul></li>
+</ul>
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+    </aside>
+
+    <div class="book-page">
+      <header class="flex align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/sequelize-handbook/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>hasOne</strong>
+</header>
+
+      
+<article class="markdown"><p><code>Project.hasOne(User, { foreignKey: 'initiator_id' })</code></p>
+
+<p>这个定义 的意思是：</p>
+
+<p>User表中的 外键 initiator_id 的值  =  Project.Id ，对吗？</p>
+
+<p>// 如果想对一个表做两次连接查询:
+Team.hasOne(Game, {as: &lsquo;HomeTeam&rsquo;, foreignKey : &lsquo;homeTeamId&rsquo;});
+Team.hasOne(Game, {as: &lsquo;AwayTeam&rsquo;, foreignKey : &lsquo;awayTeamId&rsquo;});</p>
+
+<p>是指</p>
+
+<ol>
+<li>Game 中的 homeTeamId 值  =  Team 表中的 id<br />
+的 同时：</li>
+<li>Game 中的 awayTeamId 值  =  Team 表中的 id<br /></li>
+</ol>
+
+<p>转化成 sql ，则是：</p>
+
+<pre><code>select * from Team inner join Game AS  HomeTeam on HomeTeam.homeTeamId=Team.id inner join Game As AwayTeam on AwayTeam.awayTeamId = Team.id
+</code></pre>
+</article>
+
+      
+<div class="book-footer justify-between">
+  
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/eiuapp/sequelize-handbook/commit/fe91a83eea13112b842af76106b4fbc00450b356" title='Last modified Oct 22, 2019 by zengyunlong' target="_blank" rel="noopener">
+      <img src="/sequelize-handbook/svg/calendar.svg" alt="Changed" />
+      <span>Oct 22, 2019</span>
+    </a>
+  </div>
+  
+  
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/eiuapp/sequelize-handbook/edit/master/exampleSite/content/docs/example/associations/hasOne.md" target="_blank" rel="noopener">
+      <img src="/sequelize-handbook/svg/edit.svg" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+    
+  </div>
+  
+</div>
+
+
+      
+    </div>
+
+    
+  
+
+
+
+  </main>
+
+  
+</body>
+
+</html>
