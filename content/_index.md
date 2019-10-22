@@ -1,3 +1,8 @@
+---
+title: Introduction
+type: docs
+---
+
 # 学习笔记
 
 ![](https://raw.githubusercontent.com/eiuapp/img/master/img/hugo-logo-black.png?token=AJOUPL5RQABN75RVK4HTESK5CSI5M)
@@ -18,8 +23,3 @@
 
 本笔记内容可以任意转载，但请注明来源并提供链接，**请勿用于商业出版**。
 
-### 安装
-
-```
-git submodule add https://github.com/alex-shpak/hugo-book themes/book
-```
