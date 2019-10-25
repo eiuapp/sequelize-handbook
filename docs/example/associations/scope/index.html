@@ -1,0 +1,52 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta property=og:title content=scope><meta property=og:description content="https://itbilu.com/nodejs/npm/41qaV3czb.html#associations-scopes
+hasMany scope this.Image.hasMany(this.Comment, { foreignKey: 'commentable_id', constraints: false, scope: { commentable: 'image' } });  表示
+Image.id = comment.commentable_id 而且 comment.commentable = &lsquo;image&rsquo;;
+this.Comment.belongsTo(this.Image, { foreignKey: 'commentable_id', constraints: false, as: 'image' });  就表示
+comment.commentable_id = image.id
+ItemTag ItemTag = sequelize.define(&lsquo;item_tag&rsquo;, { tag_id: { type: DataTypes.INTEGER, unique: &lsquo;item_tag_taggable&rsquo; }, taggable: { type: DataTypes.STRING, unique: &lsquo;item_tag_taggable&rsquo; }, taggable_id: { type: DataTypes.INTEGER, unique: &lsquo;item_tag_taggable&rsquo;, references: null } });
+Post.belongsToMany(Tag, { through: { model: ItemTag, unique: false, scope: { taggable: &lsquo;post&rsquo; } }, foreignKey: &lsquo;taggable_id&rsquo;, constraints: false });"><meta property=og:type content=article><meta property=og:url content=https://eiuapp.github.io/sequelize-handbook/docs/example/associations/scope/><meta property=article:modified_time content=2019-10-25T18:14:01+08:00><title>scope | Sequelize</title><link rel=icon href=/sequelize-handbook/favicon.png type=image/x-icon><link rel=stylesheet href=/sequelize-handbook/book.min.1b994bd28c6ce2255f069b6bf6837b4d396307637fc48d61dcb2a6caac26e031.css integrity="sha256-G5lL0oxs4iVfBptr9oN7TTljB2N/xI1h3LKmyqwm4DE="><script defer src=/sequelize-handbook/search.min.f0b70b72b3ee292a301cb9da0b4946d574601975aa681fb9a9e33e4967576fee.js integrity="sha256-8LcLcrPuKSowHLnaC0lG1XRgGXWqaB&#43;5qeM&#43;SWdXb&#43;4="></script></head><body><input type=checkbox class=hidden id=menu-control><main class="flex container"><aside class="book-menu fixed"><nav><h2 class=book-brand><a href=https://eiuapp.github.io/sequelize-handbook/><span>Sequelize</span></a></h2><div class=book-search><input type=text placeholder=Search id=book-search-input maxlength=64><div class="book-search-spinner spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/sequelize-handbook/docs/resource/sequelize-docs/><strong>Docs</strong></a></li><li><a href=/sequelize-handbook/docs/example/><strong>Example</strong></a><ul><li><a href=/sequelize-handbook/docs/example/associations/>associations</a></li></ul></li></ul></nav><script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script></aside><div class=book-page><header class="flex align-center justify-between book-header"><label for=menu-control><img src=/sequelize-handbook/svg/menu.svg alt=Menu></label>
+<strong>scope</strong></header><article class=markdown><p><a href=https://itbilu.com/nodejs/npm/41qaV3czb.html#associations-scopes>https://itbilu.com/nodejs/npm/41qaV3czb.html#associations-scopes</a></p><h2 id=hasmany-scope>hasMany scope</h2><pre><code>this.Image.hasMany(this.Comment, {
+  foreignKey: 'commentable_id',
+  constraints: false,
+  scope: {
+    commentable: 'image'
+  }
+});
+</code></pre><p>表示</p><p>Image.id = comment.commentable_id 而且 comment.commentable = &lsquo;image&rsquo;;</p><pre><code>this.Comment.belongsTo(this.Image, {
+  foreignKey: 'commentable_id',
+  constraints: false,
+  as: 'image'
+});
+</code></pre><p>就表示</p><p>comment.commentable_id = image.id</p><h2 id=itemtag>ItemTag</h2><p>ItemTag = sequelize.define(&lsquo;item_tag&rsquo;, {
+tag_id: {
+type: DataTypes.INTEGER,
+unique: &lsquo;item_tag_taggable&rsquo;
+},
+taggable: {
+type: DataTypes.STRING,
+unique: &lsquo;item_tag_taggable&rsquo;
+},
+taggable_id: {
+type: DataTypes.INTEGER,
+unique: &lsquo;item_tag_taggable&rsquo;,
+references: null
+}
+});</p><p>Post.belongsToMany(Tag, {
+through: {
+model: ItemTag,
+unique: false,
+scope: {
+taggable: &lsquo;post&rsquo;
+}
+},
+foreignKey: &lsquo;taggable_id&rsquo;,
+constraints: false
+});</p><p>Tag.belongsToMany(Post, {
+through: {
+model: ItemTag,
+unique: false
+},
+foreignKey: &lsquo;tag_id&rsquo;
+});</p></article><div class="book-footer justify-between"><div><a class="flex align-center" href=https://github.com/eiuapp/sequelize-handbook/commit/48c6fe576b228d0e49dc47f79c5f2fa2d62fa926 title="Last modified Oct 25, 2019 by zengyunlong" target=_blank rel=noopener><img src=/sequelize-handbook/svg/calendar.svg alt=Changed>
+<span>Oct 25, 2019</span></a></div><div><a class="flex align-center" href=https://github.com/eiuapp/sequelize-handbook/edit/master/content/docs/example/associations/scope.md target=_blank rel=noopener><img src=/sequelize-handbook/svg/edit.svg alt=Edit>
+<span>Edit this page</span></a></div></div></div></main></body></html>
