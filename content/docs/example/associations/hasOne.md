@@ -1,18 +1,20 @@
 ---
 title: hasOne
-weight: 2
+weight: 3
 bookToc: false
 ---
 
 ## foreignKey
 
+- hasOne 或者 hasMany 的 foreignKey 都是 目标模型
+- belongsTo 或者 belongsToMany 的 foreignKey 都是 源模型
 ```
 Project.hasOne(User, { foreignKey: 'initiator_id' })
 ```
 
 这个定义 的意思是：
 
-User表中的 外键 initiator_id 的值  =  Project.Id
+Project.Id = User表中的 外键 initiator_id 的值, 而不是 User 表中的 project_id
 
 ## 如果想对一个表做两次连接查询
 
