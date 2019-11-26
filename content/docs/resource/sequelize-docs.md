@@ -5,6 +5,10 @@ weight: 1
 
 ## Sequelize 中文API文档
 
+### [sequelize 中文文档]
+
+- https://github.com/demopark/sequelize-docs-Zh-CN
+
 ### [Sequelize 中文文档整理（v5版本）](https://itbilu.com/nodejs/npm/sequelize-docs-v5.html)
 
 ### Sequelize 中文API文档－v4
